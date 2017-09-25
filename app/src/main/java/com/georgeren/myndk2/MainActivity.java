@@ -33,6 +33,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_play_audio = (Button) findViewById(R.id.btn_play_audio);
         btn_play_audio.setOnClickListener(this);
 
+        findViewById(R.id.btn_decode_video).setOnClickListener(this);
+        findViewById(R.id.btn_decode_voice).setOnClickListener(this);
+
         mPlayer = new VideoPlayer();
 
     }
@@ -41,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         String inputVideo = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separatorChar
                 + "test.mp4";
+        String inputAudio = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separatorChar
+                + "love.mp3";
         switch (v.getId()) {
             case R.id.btn_play:// 播放视频(没声音)
 
@@ -49,10 +54,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_play_audio:
 //                mPlayer.play(inputVideo);// 播放视频的音频（没有视频）
-
-                String inputAudio = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separatorChar
-                        + "love.mp3";//
                 mPlayer.play(inputAudio);
+                break;
+
+            case R.id.btn_decode_video:// 视频解码
+                String outputVideo = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separatorChar
+                        + "output_1280x720_yuv420p.yuv";
+                VideoUtils.decode(inputVideo, outputVideo);
+                break;
+            case R.id.btn_decode_voice:
+
+                String outputAudio = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separatorChar
+                        + "love.pcm";
+                VideoUtils.sound(inputAudio, outputAudio);
                 break;
 
         }

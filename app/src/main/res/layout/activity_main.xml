@@ -13,19 +13,42 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_play"
-            android:layout_width="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="视频播放" />
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/btn_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="视频播放" />
 
-        <Button
-            android:id="@+id/btn_play_audio"
-            android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btn_play_audio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="音频播放" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="音频播放" />
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/btn_decode_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="视频解密" />
+
+            <Button
+                android:id="@+id/btn_decode_voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="音频解码" />
+        </LinearLayout>
+
 
     </LinearLayout>
 
